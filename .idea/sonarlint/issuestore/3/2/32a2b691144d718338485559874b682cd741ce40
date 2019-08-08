@@ -1,0 +1,6 @@
+
+[squid:UselessImportCheck"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8½¢Ñ÷Ä,
+¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(İßéàúÿÿÿÿ8ˆÆ¼÷Ä,
+psquid:UselessImportCheck"GRemove this unused import 'com.gilace.mvpmovies.retrofite.model.Datum'.(İ™ÿø8ˆÆ¼÷Ä,
+Ysquid:UselessImportCheck"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8ˆÆ¼÷Ä,
+squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(–éÎû8¡Ğ÷Ä,
