@@ -12,7 +12,7 @@ import com.gilace.mvpmovies.mvp.BaseFragmentVP;
 import com.gilace.mvpmovies.presenter.FragmentSearchPresenter;
 
 
-public class FragmentSearch extends BaseFragment implements BaseFragmentVP.View {
+public class FragmentSearch extends BaseFragment  {
 
 
     LinearLayoutManager linearLayoutManager;

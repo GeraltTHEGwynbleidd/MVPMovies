@@ -12,7 +12,7 @@ import com.gilace.mvpmovies.mvp.BaseFragmentVP;
 import com.gilace.mvpmovies.presenter.FragmentMainPresenter;
 
 
-public class FragmentMain extends BaseFragment implements BaseFragmentVP.View {
+public class FragmentMain extends BaseFragment {
 
 
     LinearLayoutManager linearLayoutManager;
