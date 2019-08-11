@@ -1,6 +1,7 @@
 package com.gilace.mvpmovies.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,11 +19,11 @@ import java.util.List;
 
 public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.RecyclerViewHolder> {
 
-    public List<Datum> datumList;
-    Context context;
-    View view;
+    private List<Datum> datumList;
+    private Context context;
+//    private View view;
 
-    public class RecyclerViewHolder extends RecyclerView.ViewHolder {
+    class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
 
         ImageView thumbnail;
@@ -31,37 +32,46 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Re
         TextView genre;
         TextView releaseYear;
 
-        public RecyclerViewHolder(View itemView) {
+        RecyclerViewHolder(View itemView) {
             super(itemView);
             thumbnail = itemView.findViewById(R.id.thumbnail);
             title = itemView.findViewById(R.id.title);
             rating = itemView.findViewById(R.id.rating);
-            rating = itemView.findViewById(R.id.rating);
-            rating = itemView.findViewById(R.id.rating);
+            genre = itemView.findViewById(R.id.genre);
+            releaseYear = itemView.findViewById(R.id.releaseYear);
         }
+    }
+
+    public void cleanAdapter() {
+        datumList.clear();
     }
 
     public MoviesListAdapter(Context context) {
         this.context = context;
-        datumList=new ArrayList<>();
+        datumList = new ArrayList<>();
     }
 
+    @NonNull
     @Override
-    public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_row, parent, false);
-        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(itemView);
-        view = itemView;
-        return recyclerViewHolder;
+//        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(itemView);
+//        view = itemView;
+        return new RecyclerViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull RecyclerViewHolder holder, int position) {
         Datum datum = datumList.get(position);
         Glide
                 .with(context)
                 .load(datum.getPoster())
                 .into(holder.thumbnail);
 
+        holder.title.setText(datum.getTitle());
+        holder.genre.setText(datum.getGenres().toString());
+        holder.rating.setText(datum.getImdbRating());
+        holder.releaseYear.setText(datum.getYear());
 
     }
 
@@ -76,8 +86,10 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Re
 
         if (previousDataSize == 0) {
             datumList.addAll(items);
-            notifyItemInserted(1);
+//            notifyItemInserted(0);
+            notifyDataSetChanged();
         } else {
+//            this.datumList.clear();
             datumList.addAll(items);
             notifyItemRangeInserted(previousDataSize, items.size());
         }

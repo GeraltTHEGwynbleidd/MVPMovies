@@ -19,5 +19,8 @@ public interface ApiInterface {
     @GET("movies")
     Call<Data> getMoviesList(@Query("page") String page);
 
+    @GET("movies")
+    Call<Data> getMoviesList(@Query("page") String page, @Query("q") String query);
+
 
 }
