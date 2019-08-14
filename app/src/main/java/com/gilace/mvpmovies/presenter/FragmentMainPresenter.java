@@ -1,9 +1,7 @@
 package com.gilace.mvpmovies.presenter;
 
 import android.support.annotation.NonNull;
-import android.util.Log;
-
-import com.gilace.mvpmovies.mvp.BaseFragmentVP;
+import com.gilace.mvpmovies.mvp.FragmentMainVP;
 import com.gilace.mvpmovies.retrofite.ApiClient;
 import com.gilace.mvpmovies.retrofite.ApiInterface;
 import com.gilace.mvpmovies.retrofite.model.Data;
@@ -12,11 +10,11 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class FragmentMainPresenter implements BaseFragmentVP.MainFragmentPresenter {
+public class FragmentMainPresenter implements FragmentMainVP.MainFragmentPresenter {
 
-    private BaseFragmentVP.View view;
+    private FragmentMainVP.View view;
 
-    public FragmentMainPresenter(BaseFragmentVP.View view){
+    public FragmentMainPresenter(FragmentMainVP.View view){
         this.view = view;
     }
 

@@ -1,16 +1,18 @@
 package com.gilace.mvpmovies.mvp;
 
-import com.gilace.mvpmovies.fragment.BaseFragment;
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.app.Fragment;
 
 public interface MainActivityVP {
 
     interface View {
 
-        void setFragment(BaseFragment fragment);
+        void setFragment(Fragment fragment);
 
-//        Activity getActivity();
-//
-//        Context getAppContext();
+        Activity getActivity();
+
+        Context getAppContext();
     }
 
     interface Presenter {

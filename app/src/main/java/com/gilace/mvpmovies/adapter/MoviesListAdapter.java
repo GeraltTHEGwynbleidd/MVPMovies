@@ -21,7 +21,7 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Re
 
     private List<Datum> datumList;
     private Context context;
-//    private View view;
+//    private FragmentView view;
 
     class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
@@ -80,14 +80,21 @@ public class MoviesListAdapter extends RecyclerView.Adapter<MoviesListAdapter.Re
         return datumList.size();
     }
 
+
     public void add(List<Datum> items) {
 
-        int previousDataSize = this.datumList.size();
 
+        int previousDataSize;
+
+        if (datumList != null) {
+            previousDataSize = this.datumList.size();
+        } else {
+            previousDataSize = 0;
+        }
         if (previousDataSize == 0) {
             datumList.addAll(items);
-//            notifyItemInserted(0);
-            notifyDataSetChanged();
+            notifyItemInserted(1);
+//            notifyDataSetChanged();
         } else {
 //            this.datumList.clear();
             datumList.addAll(items);

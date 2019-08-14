@@ -12,10 +12,10 @@
         android:layout_above="@id/linear_search" />
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
         android:id="@+id/linear_search"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
 
         <EditText
             android:id="@+id/search_text"
