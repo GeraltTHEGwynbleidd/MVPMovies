@@ -60,7 +60,8 @@ public class FragmentSearch extends Fragment implements FragmentSearchVP.View {
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 if (!recyclerView.canScrollVertically(1)) {
                     int totalItemCount = linearLayoutManager.getItemCount();
-                    presenter.getMoviesBySearch(String.valueOf((totalItemCount / 10) + 1),searchText);
+                    if (totalItemCount >= 10)
+                        presenter.getMoviesBySearch(String.valueOf((totalItemCount / 10) + 1), searchText);
                 }
             }
         });
